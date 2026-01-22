@@ -1,21 +1,21 @@
 // Get product ID from URL
 function getProductIdFromUrl() {
-    const urlParams = new URLSearchParams(window.location.search);
-    return parseInt(urlParams.get('id'));
+  const urlParams = new URLSearchParams(window.location.search);
+  return parseInt(urlParams.get('id'));
 }
 
 // Get product by ID
 function getProduct(productId) {
-    return products.find(p => p.id === productId);
+  return products.find(p => p.id === productId);
 }
 
 // Render product detail
 function renderProductDetail() {
-    const productId = getProductIdFromUrl();
-    const product = getProduct(productId);
+  const productId = getProductIdFromUrl();
+  const product = getProduct(productId);
 
-    if (!product) {
-        document.querySelector('.product-detail').innerHTML = `
+  if (!product) {
+    document.querySelector('.product-detail').innerHTML = `
       <div class="container">
         <div class="cart-empty">
           <div class="cart-empty-icon">⚠️</div>
@@ -24,12 +24,12 @@ function renderProductDetail() {
         </div>
       </div>
     `;
-        return;
-    }
+    return;
+  }
 
-    const productDetailContainer = document.querySelector('.product-detail-container');
+  const productDetailContainer = document.querySelector('.product-detail-container');
 
-    productDetailContainer.innerHTML = `
+  productDetailContainer.innerHTML = `
     <div class="product-detail-grid">
       <div class="product-gallery">
         <div class="main-image-wrapper">
@@ -98,51 +98,78 @@ function renderProductDetail() {
     </div>
   `;
 
-    // Render related products
-    renderRelatedProducts(product);
+  // Render related products
+  renderRelatedProducts(product);
 }
 
 // Change main image
 function changeImage(imageSrc, index) {
-    const mainImage = document.getElementById('mainImage');
-    mainImage.src = imageSrc;
+  const mainImage = document.getElementById('mainImage');
+  mainImage.src = imageSrc;
 
-    // Update active thumbnail
-    document.querySelectorAll('.thumbnail').forEach((thumb, i) => {
-        thumb.classList.toggle('active', i === index);
-    });
+  // Update active thumbnail
+  document.querySelectorAll('.thumbnail').forEach((thumb, i) => {
+    thumb.classList.toggle('active', i === index);
+  });
 }
 
 // Add to cart from detail page
 function addToCartFromDetail(productId) {
-    const product = getProduct(productId);
-    if (product) {
-        cartManager.addToCart(product);
-    }
+  const product = getProduct(productId);
+  if (product) {
+    cartManager.addToCart(product);
+
+    // Show success notification
+    showToast(`${product.name} added to cart!`);
+  }
+}
+
+// Show toast notification
+function showToast(message) {
+  // Remove existing toast if any
+  const existingToast = document.querySelector('.toast');
+  if (existingToast) {
+    existingToast.remove();
+  }
+
+  // Create toast element
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.textContent = message;
+  document.body.appendChild(toast);
+
+  // Show toast
+  setTimeout(() => toast.classList.add('show'), 100);
+
+  // Hide and remove toast
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
 }
 
 // Buy now - redirect to WhatsApp
 function buyNow(productId) {
-    const product = getProduct(productId);
-    if (product) {
-        const message = WHATSAPP_CONFIG.getProductMessage(product, 1);
-        const whatsappUrl = WHATSAPP_CONFIG.getWhatsAppUrl(message);
-        window.open(whatsappUrl, '_blank');
-    }
+  const product = getProduct(productId);
+  if (product) {
+    const message = WHATSAPP_CONFIG.getProductMessage(product, 1);
+    const whatsappUrl = WHATSAPP_CONFIG.getWhatsAppUrl(message);
+    window.open(whatsappUrl, '_blank');
+  }
 }
 
 // Render related products
 function renderRelatedProducts(currentProduct) {
-    const relatedProducts = products
-        .filter(p => p.category === currentProduct.category && p.id !== currentProduct.id)
-        .slice(0, 4);
+  const relatedProducts = products
+    .filter(p => p.category === currentProduct.category && p.id !== currentProduct.id)
+    .slice(0, 4);
 
-    if (relatedProducts.length === 0) return;
+  if (relatedProducts.length === 0) return;
 
-    const relatedSection = document.createElement('section');
-    relatedSection.className = 'product-section';
-    relatedSection.style.marginTop = '3rem';
-    relatedSection.innerHTML = `
+  const relatedSection = document.createElement('section');
+  relatedSection.className = 'product-section';
+  relatedSection.style.marginTop = '3rem';
+  relatedSection.innerHTML = `
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Related Products</h2>
@@ -153,12 +180,12 @@ function renderRelatedProducts(currentProduct) {
     </div>
   `;
 
-    document.querySelector('.product-detail').appendChild(relatedSection);
+  document.querySelector('.product-detail').appendChild(relatedSection);
 }
 
 // Create product card (same as main.js)
 function createProductCard(product) {
-    return `
+  return `
     <div class="product-card fade-in" onclick="goToProduct(${product.id})">
       <div class="product-image-wrapper">
         <img src="${product.image}" alt="${product.name}" class="product-image">
@@ -188,19 +215,19 @@ function createProductCard(product) {
 
 // Add to cart
 function addToCart(productId) {
-    const product = products.find(p => p.id === productId);
-    if (product) {
-        cartManager.addToCart(product);
-    }
+  const product = products.find(p => p.id === productId);
+  if (product) {
+    cartManager.addToCart(product);
+  }
 }
 
 // Go to product
 function goToProduct(productId) {
-    window.location.href = `product.html?id=${productId}`;
+  window.location.href = `product.html?id=${productId}`;
 }
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
-    renderProductDetail();
-    cartManager.updateCartBadge();
+  renderProductDetail();
+  cartManager.updateCartBadge();
 });
