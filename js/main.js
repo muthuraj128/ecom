@@ -219,14 +219,56 @@ function filterByCategory(categoryName) {
           <h2 class="section-title">${categoryName}</h2>
         </div>
         <div class="product-grid">
-          ${productsByCategory.map(product => createProductCard(product)).join('')}
+          ${productsByCategory.length > 0
+      ? productsByCategory.map(product => createProductCard(product)).join('')
+      : '<p style="grid-column: 1/-1; text-align: center; padding: 3rem; color: #999;">No products found in this category</p>'
+    }
         </div>
       </div>
     </section>
   `;
 
+  // Update active nav link
+  updateActiveNavLink(categoryName);
+
+  // Update wishlist button states
+  setTimeout(() => {
+    if (typeof updateWishlistButtons === 'function') {
+      updateWishlistButtons();
+    }
+  }, 100);
+
   // Scroll to top
   window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Show all products
+function showAllProducts() {
+  renderProductsByCategory();
+
+  // Update active nav link
+  updateActiveNavLink('All Products');
+
+  // Update wishlist button states
+  setTimeout(() => {
+    if (typeof updateWishlistButtons === 'function') {
+      updateWishlistButtons();
+    }
+  }, 100);
+
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Update active navigation link
+function updateActiveNavLink(categoryName) {
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.textContent === categoryName) {
+      link.classList.add('active');
+    }
+  });
 }
 
 // Search functionality

@@ -80,17 +80,19 @@
     <nav class="nav">
       <div class="container">
         <ul class="nav-list">
-          <li><a href="#" class="nav-link active">Wishlist</a></li>
-          <li><a href="#" class="nav-link">Smartwatch</a></li>
-          <li><a href="#" class="nav-link">Analog watch</a></li>
-          <li><a href="#" class="nav-link">Headphones</a></li>
-          <li><a href="#" class="nav-link">Projector</a></li>
-          <li><a href="#" class="nav-link">Bluetooth speakers</a></li>
-          <li><a href="#" class="nav-link">Powerbank</a></li>
-          <li><a href="#" class="nav-link">Neckband</a></li>
-          <li><a href="#" class="nav-link">Mini fan</a></li>
-          <li><a href="#" class="nav-link">Accessories</a></li>
-          <li><a href="#" class="nav-link">Shoes</a></li>
+          <li><a href="#" class="nav-link active" onclick="showAllProducts(); return false;">All Products</a></li>
+          <li><a href="#" class="nav-link" onclick="filterByCategory('Smartwatch'); return false;">Smartwatch</a></li>
+          <li><a href="#" class="nav-link" onclick="filterByCategory('Analog watch'); return false;">Analog watch</a>
+          </li>
+          <li><a href="#" class="nav-link" onclick="filterByCategory('Headphones'); return false;">Headphones</a></li>
+          <li><a href="#" class="nav-link" onclick="filterByCategory('Projector'); return false;">Projector</a></li>
+          <li><a href="#" class="nav-link" onclick="filterByCategory('Bluetooth speakers'); return false;">Bluetooth
+              speakers</a></li>
+          <li><a href="#" class="nav-link" onclick="filterByCategory('Powerbank'); return false;">Powerbank</a></li>
+          <li><a href="#" class="nav-link" onclick="filterByCategory('Neckband'); return false;">Neckband</a></li>
+          <li><a href="#" class="nav-link" onclick="filterByCategory('Mini fan'); return false;">Mini fan</a></li>
+          <li><a href="#" class="nav-link" onclick="filterByCategory('Accessories'); return false;">Accessories</a></li>
+          <li><a href="#" class="nav-link" onclick="filterByCategory('Shoes'); return false;">Shoes</a></li>
         </ul>
       </div>
     </nav>
