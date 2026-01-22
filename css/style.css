@@ -14,7 +14,7 @@
   --border-color: #E0E0E0;
   --success: #28A745;
   --danger: #DC3545;
-  
+
   /* Spacing */
   --spacing-xs: 0.5rem;
   --spacing-sm: 0.75rem;
@@ -22,7 +22,7 @@
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
   --spacing-xxl: 3rem;
-  
+
   /* Typography */
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-size-xs: 0.75rem;
@@ -31,25 +31,25 @@
   --font-size-lg: 1.125rem;
   --font-size-xl: 1.5rem;
   --font-size-xxl: 2rem;
-  
+
   /* Border Radius */
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
   --radius-xl: 16px;
   --radius-full: 50%;
-  
+
   /* Shadows */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.12);
   --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
-  
+
   /* Transitions */
   --transition-fast: 0.15s ease;
   --transition-base: 0.3s ease;
   --transition-slow: 0.5s ease;
-  
+
   /* Z-index */
   --z-dropdown: 1000;
   --z-sticky: 1020;
@@ -97,13 +97,15 @@ button {
   transition: var(--transition-base);
 }
 
-input, textarea {
+input,
+textarea {
   font-family: inherit;
   border: none;
   outline: none;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
@@ -442,6 +444,31 @@ ul, ol {
   background: var(--secondary-color);
   color: white;
   transform: scale(1.1);
+}
+
+.wishlist-btn.active {
+  background: var(--secondary-color);
+  color: white;
+}
+
+.wishlist-btn.active svg {
+  fill: currentColor;
+}
+
+.wishlist-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--secondary-color);
+  color: white;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .product-info {
@@ -878,9 +905,12 @@ ul, ol {
 }
 
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
   }
+
   50% {
     box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5);
   }
@@ -937,20 +967,20 @@ ul, ol {
   .product-grid {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
-  
+
   .product-detail-grid {
     grid-template-columns: 1fr;
     gap: var(--spacing-xl);
   }
-  
+
   .product-gallery {
     position: static;
   }
-  
+
   .cart-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .cart-summary {
     position: static;
   }
@@ -962,46 +992,46 @@ ul, ol {
     --font-size-xxl: 1.5rem;
     --font-size-xl: 1.25rem;
   }
-  
+
   .container {
     padding: 0 var(--spacing-sm);
   }
-  
+
   /* Header */
   .header-top {
     padding: var(--spacing-sm) 0;
   }
-  
+
   .logo {
     font-size: var(--font-size-base);
   }
-  
+
   .logo-img {
     width: 32px;
     height: 32px;
   }
-  
+
   .search-bar {
     display: none;
   }
-  
+
   .header-icons {
     gap: var(--spacing-sm);
   }
-  
+
   .header-icon {
     font-size: 1.125rem;
     padding: var(--spacing-xs);
   }
-  
+
   .hamburger {
     display: flex;
   }
-  
+
   .nav {
     display: none;
   }
-  
+
   .nav.mobile-open {
     display: block;
     position: absolute;
@@ -1012,146 +1042,146 @@ ul, ol {
     box-shadow: var(--shadow-lg);
     padding: var(--spacing-md);
   }
-  
+
   .nav.mobile-open .nav-list {
     flex-direction: column;
     gap: 0;
   }
-  
+
   .nav.mobile-open .nav-link {
     display: block;
     padding: var(--spacing-md);
     border-bottom: 1px solid var(--border-color);
   }
-  
+
   /* Categories */
   .category-grid {
     grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
     gap: var(--spacing-sm);
   }
-  
+
   .category-card {
     padding: var(--spacing-sm);
     min-width: 80px;
   }
-  
+
   .category-icon {
     width: 48px;
     height: 48px;
   }
-  
+
   .category-name {
     font-size: var(--font-size-xs);
   }
-  
+
   /* Products */
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-sm);
   }
-  
+
   .product-card {
     border-radius: var(--radius-md);
   }
-  
+
   .product-info {
     padding: var(--spacing-sm);
   }
-  
+
   .product-name {
     font-size: var(--font-size-sm);
   }
-  
+
   .product-price {
     font-size: var(--font-size-base);
   }
-  
+
   .product-actions {
     flex-direction: column;
   }
-  
+
   .btn {
     padding: var(--spacing-xs) var(--spacing-sm);
     font-size: var(--font-size-xs);
   }
-  
+
   /* Product Detail */
   .product-detail {
     padding: var(--spacing-md) 0;
   }
-  
+
   .product-detail-grid {
     padding: var(--spacing-md);
   }
-  
+
   .product-detail-info h1 {
     font-size: var(--font-size-xl);
   }
-  
+
   .product-detail-price {
     font-size: var(--font-size-xl);
   }
-  
+
   .product-badges {
     flex-wrap: wrap;
   }
-  
+
   .product-detail-actions {
     flex-direction: column;
   }
-  
+
   .thumbnail-grid {
     grid-template-columns: repeat(4, 1fr);
   }
-  
+
   /* Cart */
   .cart-item {
     grid-template-columns: 80px 1fr;
     gap: var(--spacing-md);
     padding: var(--spacing-md);
   }
-  
+
   .cart-item-image {
     width: 80px;
     height: 80px;
   }
-  
+
   .cart-item-info h3 {
     font-size: var(--font-size-base);
   }
-  
+
   .cart-item-price {
     font-size: var(--font-size-base);
   }
-  
+
   .cart-item-actions {
     grid-column: 1 / -1;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
   }
-  
+
   .cart-summary {
     padding: var(--spacing-md);
   }
-  
+
   /* Bottom Nav */
   .bottom-nav {
     display: block;
   }
-  
+
   .whatsapp-float {
     bottom: 70px;
     right: var(--spacing-md);
     width: 50px;
     height: 50px;
   }
-  
+
   .whatsapp-float svg {
     width: 28px;
     height: 28px;
   }
-  
+
   /* Add padding to pages for bottom nav */
   body {
     padding-bottom: 60px;
@@ -1162,15 +1192,15 @@ ul, ol {
   .product-grid {
     gap: var(--spacing-xs);
   }
-  
+
   .section-title {
     font-size: var(--font-size-lg);
   }
-  
+
   .cart-item {
     grid-template-columns: 1fr;
   }
-  
+
   .cart-item-image {
     width: 100%;
     height: 200px;
@@ -1189,6 +1219,7 @@ ul, ol {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1205,6 +1236,7 @@ ul, ol {
   0% {
     background-position: 200% 0;
   }
+
   100% {
     background-position: -200% 0;
   }
