@@ -34,18 +34,18 @@ function renderCart() {
 
   // Render cart items
   cartItemsContainer.innerHTML = cart.map(item => `
-    <div class="cart-item fade-in">
+    <div class="cart-item fade-in" onclick="goToProduct(${item.id})" style="cursor: pointer;">
       <img src="${item.image}" alt="${item.name}" class="cart-item-image">
       <div class="cart-item-info">
         <h3>${item.name}</h3>
         <p class="cart-item-price">₹${item.price.toLocaleString()}</p>
-        <div class="quantity-controls">
+        <div class="quantity-controls" onclick="event.stopPropagation();">
           <button class="quantity-btn" onclick="updateQuantity(${item.id}, ${item.quantity - 1})">−</button>
           <span class="quantity-value">${item.quantity}</span>
           <button class="quantity-btn" onclick="updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
         </div>
       </div>
-      <div class="cart-item-actions">
+      <div class="cart-item-actions" onclick="event.stopPropagation();">
         <p style="font-size: 1.25rem; font-weight: 700;">₹${(item.price * item.quantity).toLocaleString()}</p>
         <button class="remove-btn" onclick="removeItem(${item.id})">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 4px;">
@@ -128,6 +128,11 @@ function checkout() {
   //     renderCart();
   //   }
   // }, 1000);
+}
+
+// Go to product detail page
+function goToProduct(productId) {
+  window.location.href = `product.html?id=${productId}`;
 }
 
 // Initialize on page load
