@@ -323,6 +323,19 @@ function initMobileMenu() {
   }
 }
 
+// Focus search bar (for mobile)
+function focusSearchBar() {
+  const searchInput = document.querySelector('.search-input');
+  if (searchInput) {
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Focus search input after scroll
+    setTimeout(() => {
+      searchInput.focus();
+    }, 300);
+  }
+}
+
 // Wishlist toggle
 function toggleWishlist(productId) {
   // Initialize wishlist manager if not already done

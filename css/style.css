@@ -1002,6 +1002,10 @@ ol {
     padding: var(--spacing-sm) 0;
   }
 
+  .header-top .flex-between {
+    flex-wrap: wrap;
+  }
+
   .logo {
     font-size: var(--font-size-base);
   }
@@ -1012,7 +1016,17 @@ ol {
   }
 
   .search-bar {
-    display: none;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: var(--spacing-sm) 0;
+    order: 3;
+    flex-basis: 100%;
+  }
+
+  .search-input {
+    width: 100%;
+    font-size: var(--font-size-sm);
   }
 
   .header-icons {
