@@ -7,8 +7,9 @@ function renderCart() {
   const emptyCartMessage = document.querySelector('.cart-empty');
 
   if (cart.length === 0) {
-    // Hide cart container and show empty message
-    if (cartContainer) cartContainer.style.display = 'none';
+    // Hide cart grid
+    const cartGrid = document.querySelector('.cart-grid');
+    if (cartGrid) cartGrid.style.display = 'none';
 
     // Create or show empty cart message
     if (!emptyCartMessage) {
@@ -28,9 +29,10 @@ function renderCart() {
     return;
   }
 
-  // Hide empty message and show cart container
+  // Hide empty message and show cart grid
   if (emptyCartMessage) emptyCartMessage.style.display = 'none';
-  if (cartContainer) cartContainer.style.display = 'grid';
+  const cartGrid = document.querySelector('.cart-grid');
+  if (cartGrid) cartGrid.style.display = 'grid';
 
   // Render cart items
   cartItemsContainer.innerHTML = cart.map(item => `
