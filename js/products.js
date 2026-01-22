@@ -39,7 +39,7 @@ const products = [
     category: "Smartwatch",
     description: "Elegant smartwatch with premium build quality, sapphire crystal display, and comprehensive health monitoring features."
   },
-  
+
   // Analog Watches
   {
     id: 4,
@@ -65,7 +65,7 @@ const products = [
     category: "Analog watch",
     description: "Sporty chronograph with precision quartz movement, tachymeter bezel, and durable construction for everyday wear."
   },
-  
+
   // Wireless Buds
   {
     id: 6,
@@ -102,7 +102,7 @@ const products = [
     category: "Buds",
     description: "High-end wireless earbuds with spatial audio, adaptive EQ, and premium build quality for audiophiles."
   },
-  
+
   // Powerbanks
   {
     id: 9,
@@ -126,7 +126,7 @@ const products = [
     category: "Powerbank",
     description: "Compact and portable powerbank with 10000mAh capacity, perfect for daily use and travel."
   },
-  
+
   // Headphones
   {
     id: 11,
@@ -152,7 +152,7 @@ const products = [
     category: "Headphones",
     description: "Professional studio-grade headphones with exceptional clarity, wide frequency response, and premium build quality."
   },
-  
+
   // Projectors
   {
     id: 13,
@@ -176,7 +176,7 @@ const products = [
     category: "Projector",
     description: "Premium 4K projector with smart features, built-in streaming apps, and exceptional image quality for home cinema."
   },
-  
+
   // Bluetooth Speakers
   {
     id: 15,
@@ -202,7 +202,7 @@ const products = [
     category: "Bluetooth speakers",
     description: "High-end Bluetooth speaker system with premium audio quality, deep bass, and elegant design."
   },
-  
+
   // Neckbands
   {
     id: 17,
@@ -226,7 +226,7 @@ const products = [
     category: "Neckband",
     description: "Premium neckband earphones with active noise cancellation, superior sound quality, and all-day comfort."
   },
-  
+
   // Mini Fans
   {
     id: 19,
@@ -250,7 +250,7 @@ const products = [
     category: "Mini fan",
     description: "Stylish desktop fan with quiet operation, oscillation feature, and USB-C charging."
   },
-  
+
   // Accessories
   {
     id: 21,
@@ -285,7 +285,7 @@ const products = [
     category: "Accessories",
     description: "Complete cable management solution with clips, ties, and organizers for a clutter-free workspace."
   },
-  
+
   // Shoes
   {
     id: 24,
@@ -316,20 +316,12 @@ const products = [
 // Categories with icons
 const categories = [
   {
-    name: "Analog watch",
-    icon: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=100&q=80"
-  },
-  {
     name: "Smartwatch",
     icon: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=100&q=80"
   },
   {
-    name: "Buds",
-    icon: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=100&q=80"
-  },
-  {
-    name: "Powerbank",
-    icon: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=100&q=80"
+    name: "Analog watch",
+    icon: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=100&q=80"
   },
   {
     name: "Headphones",
@@ -342,6 +334,10 @@ const categories = [
   {
     name: "Bluetooth speakers",
     icon: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=100&q=80"
+  },
+  {
+    name: "Powerbank",
+    icon: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=100&q=80"
   },
   {
     name: "Neckband",
@@ -358,6 +354,10 @@ const categories = [
   {
     name: "Shoes",
     icon: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&q=80"
+  },
+  {
+    name: "Buds",
+    icon: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=100&q=80"
   }
 ];
 
@@ -370,13 +370,13 @@ const WHATSAPP_CONFIG = {
   getCartMessage: (cartItems) => {
     let message = "Hi, I want to order:\n\n";
     let total = 0;
-    
+
     cartItems.forEach((item, index) => {
       const itemTotal = item.price * item.quantity;
       total += itemTotal;
       message += `${index + 1}. ${item.name}\n   ₹${item.price} x ${item.quantity} = ₹${itemTotal}\n\n`;
     });
-    
+
     message += `Total Amount: ₹${total}`;
     return message;
   },

@@ -38,7 +38,8 @@
             <circle cx="11" cy="11" r="8"></circle>
             <path d="m21 21-4.35-4.35"></path>
           </svg>
-          <input type="text" class="search-input" placeholder="Search for products...">
+          <input type="text" class="search-input" placeholder="Search for products..." autocomplete="off">
+          <div class="search-dropdown" id="searchDropdown"></div>
         </div>
 
         <div class="header-icons">
@@ -105,12 +106,6 @@
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">All categories</h2>
-          <a href="#" class="view-all">
-            View all
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-              <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="2" fill="none" />
-            </svg>
-          </a>
         </div>
         <div class="category-grid">
           <!-- Categories will be dynamically loaded here -->
@@ -179,6 +174,7 @@
   <!-- Scripts -->
   <script src="js/products.js"></script>
   <script src="js/wishlist.js"></script>
+  <script src="js/search-dropdown.js"></script>
   <script src="js/main.js"></script>
 </body>
 

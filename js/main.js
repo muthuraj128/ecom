@@ -387,6 +387,11 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   cartManager.updateCartBadge();
 
+  // Initialize search dropdown
+  if (typeof initSearchDropdown === 'function') {
+    initSearchDropdown();
+  }
+
   // Initialize wishlist manager if available
   if (typeof WishlistManager !== 'undefined') {
     window.wishlistManager = new WishlistManager();

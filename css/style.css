@@ -211,6 +211,62 @@ ol {
   pointer-events: none;
 }
 
+/* Search Dropdown (YouTube-style) */
+.search-bar {
+  position: relative;
+}
+
+.search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--card-bg);
+  border: 1px solid #ccc;
+  border-top: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: var(--z-dropdown);
+  display: none;
+}
+
+.search-dropdown.active {
+  display: block;
+}
+
+.search-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+}
+
+.search-dropdown-item:hover,
+.search-dropdown-item.selected {
+  background: #f2f2f2;
+}
+
+.search-dropdown-icon {
+  color: #606060;
+  flex-shrink: 0;
+}
+
+.search-dropdown-name {
+  color: var(--text-primary);
+  font-size: 14px;
+  flex: 1;
+}
+
+.search-dropdown-empty {
+  padding: 16px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
 .header-icons {
   display: flex;
   align-items: center;
